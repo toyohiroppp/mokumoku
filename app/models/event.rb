@@ -27,4 +27,12 @@ class Event < ApplicationRecord
   def future?
     !past?
   end
+
+  def title_or_content
+    "#{title} #{content}"
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w(title content title_or_content) + _ransackers.keys
+  end
 end

@@ -4,6 +4,11 @@
       <%= image_tag event.decorate.thumbnail, class: 'card-img-top border-bottom' %>
     <% end %>
     <div class="card-body">
+      <% if event.only_woman %>
+        <div class="alert alert-warning" >
+          女性限定
+        </div>
+      <% end %>
       <h4 class="card-title fw-bold">
         <%= link_to event.title, event_path(event)  %>
       </h4>
